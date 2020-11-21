@@ -24,7 +24,7 @@ jobs:
       run: dotnet build --configuration Release
 
     - name: dotnet publish
-      run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/RebelDecrypApi
+      run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
@@ -32,4 +32,4 @@ jobs:
         app-name: 'examenml'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_aa5f5a871064471282b412426acfb81c }}
-        package: ${{env.DOTNET_ROOT}}/RebelDecrypApi 
+        package: ${{env.DOTNET_ROOT}}/myapp/RebelDecrypApi 
