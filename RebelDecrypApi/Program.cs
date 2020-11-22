@@ -21,7 +21,7 @@ namespace RebelDecrypApi
             .ConfigureWebHostDefaults(webBuilder =>
             {
               webBuilder.UseStartup<Startup>();
-              webBuilder.UseUrls("http://192.168.0.39:5003", "https://192.168.0.39:5004");
+              //webBuilder.UseUrls("http://192.168.0.39:5003", "https://192.168.0.39:5004");
             });
   }
 }
