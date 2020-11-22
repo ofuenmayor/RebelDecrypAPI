@@ -21,13 +21,18 @@ namespace RebelDecprypApi_test
         TopSecretController topSecretController = new TopSecretController(iLogger.Object);
         List<MensajeInterceptado> mensajes = new List<MensajeInterceptado>();
 
-        MensajeInterceptado mensaje1 = CrearMensaje(100, "kenovi", new string[] { "este", "", "", "mensaje", "" });
+        MensajeInterceptado mensaje1 = CrearMensaje(100, "kenovi", new List<string>() { "este", "", "", "mensaje", "" });
         mensajes.Add(mensaje1);
 
-        MensajeInterceptado mensaje2 = CrearMensaje(115.5, "skywalker", new string[] { "", "es", "", "", "secreto" });
+        MensajeInterceptado mensaje2 = CrearMensaje(115.5, "skywalker", new List<string>() { "", "es", "", "", "secreto" });
         mensajes.Add(mensaje2);
 
-        ReporteComputadoraCentral reporte = topSecretController.MensajeEntrante(mensajes);
+
+        InformacionEntrante mensajesInterceptados = new InformacionEntrante();
+
+        mensajesInterceptados.satellites = mensajes;
+
+        ReporteComputadoraCentral reporte = topSecretController.MensajeEntrante(mensajesInterceptados);
 
 
 
@@ -46,16 +51,19 @@ namespace RebelDecprypApi_test
       TopSecretController topSecretController = new TopSecretController(iLogger.Object);
       List<MensajeInterceptado> mensajes = new List<MensajeInterceptado>();
 
-      MensajeInterceptado mensaje1 = CrearMensaje(100, "kenovi", new string[] { "este", "", "", "mensaje", "" });
+      MensajeInterceptado mensaje1 = CrearMensaje(100, "kenovi", new List<string>() { "este", "", "", "mensaje", "" });
       mensajes.Add(mensaje1);
 
-      MensajeInterceptado mensaje2 = CrearMensaje(115.5, "skywalker", new string[] { "", "es", "", "", "secreto" });
+      MensajeInterceptado mensaje2 = CrearMensaje(115.5, "skywalker", new List<string>() { "", "es", "", "", "secreto" });
       mensajes.Add(mensaje2);
 
-      MensajeInterceptado mensaje3 = CrearMensaje(142.7, "sato", new string[] { "este", "", "un", "", "" });
+      MensajeInterceptado mensaje3 = CrearMensaje(142.7, "sato", new List<string>() { "este", "", "un", "", "" });
       mensajes.Add(mensaje3);
 
-      ReporteComputadoraCentral reporte = topSecretController.MensajeEntrante(mensajes);
+      InformacionEntrante mensajesInterceptados = new InformacionEntrante();
+      mensajesInterceptados.satellites = mensajes;
+
+      ReporteComputadoraCentral reporte = topSecretController.MensajeEntrante(mensajesInterceptados);
 
       Assert.Equal("este es un mensaje secreto", reporte.message);
       Assert.Equal(175.65, reporte.position.x);
@@ -63,13 +71,13 @@ namespace RebelDecprypApi_test
 
     }
 
-    private static MensajeInterceptado CrearMensaje(double distance, string satellite, string[] mensaje)
+    private static MensajeInterceptado CrearMensaje(double distance, string satellite, List<string> mensaje)
     {
       return new MensajeInterceptado()
       {
         distance = distance,
         name = satellite,
-        mensaje = mensaje
+        message = mensaje
       };
     }
   }

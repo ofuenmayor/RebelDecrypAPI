@@ -20,7 +20,7 @@ namespace RebelDecprypApi_test
     {
       Satelite kenovi = new Satelite(-500, -200);
 
-      string[] array = { "es", "", "mensaje", "" };
+      List<string> array = new List<string>() { "es", "", "mensaje", "" };
 
       kenovi.InterceptarTransmicion(100, array);
 
@@ -36,7 +36,7 @@ namespace RebelDecprypApi_test
       Satelite skyWalker = new Satelite(100, -100);
       Satelite sato = new Satelite(500, 100);
 
-      string[] array = { "", "", "", "" };
+      List<string> array = new List<string>() { "", "", "", "" };
 
       kenovi.InterceptarTransmicion(100, array);
       skyWalker.InterceptarTransmicion(115.5, array);
@@ -57,9 +57,9 @@ namespace RebelDecprypApi_test
       Satelite skyWalker = new Satelite(100, -100);
       Satelite sato = new Satelite(500, 100);
 
-      string[] array1 = { "Este", "", "un", "" };
-      string[] array2 = { "Este", "", "", "mensaje" };
-      string[] array3 = { "", "es", "", "" };
+      List<string> array1 = new List<string>() { "Este", "", "un", "" };
+      List<string> array2 = new List<string>() { "Este", "", "", "mensaje" };
+      List<string> array3 = new List<string>() { "", "es", "", "" };
 
       kenovi.InterceptarTransmicion(100, array1);
       skyWalker.InterceptarTransmicion(115.5, array2);

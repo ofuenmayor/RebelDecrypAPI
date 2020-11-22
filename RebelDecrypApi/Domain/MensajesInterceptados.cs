@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace RebelDecrypApi.Domain
 {
   public class MensajeInterceptado
@@ -6,6 +8,6 @@ namespace RebelDecrypApi.Domain
 
     public double distance { get; set; }
 
-    public string[] mensaje { get; set; }
+    public List<string> message { get; set; }
   }
 }

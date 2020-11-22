@@ -22,16 +22,16 @@ namespace RebelDecrypApi.Controllers
     }
 
     [HttpPost]
-    public ReporteComputadoraCentral MensajeEntrante([FromBody] List<MensajeInterceptado> mensajes)
+    public ReporteComputadoraCentral MensajeEntrante([FromBody] InformacionEntrante mensajesCapturados)
     {
       try
       {
-        if (mensajes.Count != 3)
+        if (mensajesCapturados.satellites.Count != 3)
         {
           throw new WebException();
         }
 
-        return ComputadoraCentral.ProcesarInformacion(mensajes);
+        return ComputadoraCentral.ProcesarInformacion(mensajesCapturados.satellites);
       }
       catch (WebException ex)
       {
