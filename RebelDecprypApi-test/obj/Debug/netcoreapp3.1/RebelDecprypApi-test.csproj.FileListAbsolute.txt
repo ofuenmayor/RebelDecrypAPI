@@ -100,3 +100,5 @@ d:\Documentos\Coding\ML\RebelDecrypAPI\RebelDecprypApi-test\bin\Debug\netcoreapp
 d:\Documentos\Coding\ML\RebelDecrypAPI\RebelDecprypApi-test\bin\Debug\netcoreapp3.1\RebelDecrypApi.exe
 d:\Documentos\Coding\ML\RebelDecrypAPI\RebelDecprypApi-test\bin\Debug\netcoreapp3.1\RebelDecrypApi.dll
 d:\Documentos\Coding\ML\RebelDecrypAPI\RebelDecprypApi-test\bin\Debug\netcoreapp3.1\RebelDecrypApi.pdb
+d:\Documentos\Coding\ML\RebelDecrypAPI\RebelDecprypApi-test\bin\Debug\netcoreapp3.1\Castle.Core.dll
+d:\Documentos\Coding\ML\RebelDecrypAPI\RebelDecprypApi-test\bin\Debug\netcoreapp3.1\Moq.dll

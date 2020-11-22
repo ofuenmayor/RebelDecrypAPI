@@ -1,11 +1,13 @@
 using System.Text;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace RebelDecrypApi.Domain
 {
   public class ComputadoraCentral
   {
+
     public static ReporteComputadoraCentral TriangularUbicacionDeLaNave(Satelite kenovi, Satelite skyWalker, Satelite sato)
     {
       double distancia = CalcularDistanciaEntreDosPuntos(kenovi, skyWalker);
@@ -14,6 +16,26 @@ namespace RebelDecrypApi.Domain
       double longitud = ((Math.Pow(kenovi.RadioEnemigoDetectado(), 2) - Math.Pow(skyWalker.RadioEnemigoDetectado(), 2) + Math.Pow(sato.Latitud(), 2) + Math.Pow(sato.Longitud(), 2)) / (2 * sato.Longitud())) - ((sato.Latitud() / sato.Longitud()) * latitud);
 
       return new ReporteComputadoraCentral(latitud, longitud);
+    }
+
+    public static ReporteComputadoraCentral ProcesarInformacion(List<MensajeInterceptado> mensajes)
+    {
+      Satelite kenovi = new Satelite(-500, -200);
+      MensajeInterceptado mensajeKenovi = mensajes.Where(m => m.name.ToLower() == "kenovi").FirstOrDefault();
+      kenovi.InterceptarTransmicion(mensajeKenovi.distance, mensajeKenovi.mensaje);
+
+      Satelite skywalker = new Satelite(100, -100);
+      MensajeInterceptado mensajeSkyWalker = mensajes.Where(m => m.name.ToLower() == "skywalker").FirstOrDefault();
+      skywalker.InterceptarTransmicion(mensajeSkyWalker.distance, mensajeSkyWalker.mensaje);
+
+      Satelite sato = new Satelite(500, 100);
+      MensajeInterceptado mensajeSato = mensajes.Where(m => m.name.ToLower() == "sato").FirstOrDefault();
+      sato.InterceptarTransmicion(mensajeSato.distance, mensajeSato.mensaje);
+
+      ReporteComputadoraCentral reporte = TriangularUbicacionDeLaNave(kenovi, skywalker, sato);
+      reporte.AgregarMensaje(DescifrarMensaje(kenovi, skywalker, sato));
+
+      return reporte;
     }
 
     private static double CalcularDistanciaEntreDosPuntos(Satelite satelite1, Satelite satelite2)
