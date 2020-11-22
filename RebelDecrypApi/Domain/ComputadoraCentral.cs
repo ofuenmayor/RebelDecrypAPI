@@ -21,16 +21,16 @@ namespace RebelDecrypApi.Domain
     public static ReporteComputadoraCentral ProcesarInformacion(List<MensajeInterceptado> mensajes)
     {
       Satelite kenovi = new Satelite(-500, -200);
-      MensajeInterceptado mensajeKenovi = mensajes.Where(m => m.name.ToLower() == "kenovi").FirstOrDefault();
-      kenovi.InterceptarTransmicion(mensajeKenovi.distance, mensajeKenovi.mensaje);
+      MensajeInterceptado mensajeKenovi = mensajes.Where(m => m.name.ToLower() == "kenobi").FirstOrDefault();
+      kenovi.InterceptarTransmicion(mensajeKenovi.distance, mensajeKenovi.message);
 
       Satelite skywalker = new Satelite(100, -100);
       MensajeInterceptado mensajeSkyWalker = mensajes.Where(m => m.name.ToLower() == "skywalker").FirstOrDefault();
-      skywalker.InterceptarTransmicion(mensajeSkyWalker.distance, mensajeSkyWalker.mensaje);
+      skywalker.InterceptarTransmicion(mensajeSkyWalker.distance, mensajeSkyWalker.message);
 
       Satelite sato = new Satelite(500, 100);
       MensajeInterceptado mensajeSato = mensajes.Where(m => m.name.ToLower() == "sato").FirstOrDefault();
-      sato.InterceptarTransmicion(mensajeSato.distance, mensajeSato.mensaje);
+      sato.InterceptarTransmicion(mensajeSato.distance, mensajeSato.message);
 
       ReporteComputadoraCentral reporte = TriangularUbicacionDeLaNave(kenovi, skywalker, sato);
       reporte.AgregarMensaje(DescifrarMensaje(kenovi, skywalker, sato));
@@ -46,12 +46,12 @@ namespace RebelDecrypApi.Domain
     public static string DescifrarMensaje(Satelite kenovi, Satelite skyWalker, Satelite sato)
     {
       StringBuilder mensaje = new StringBuilder();
-      int arrayLength = kenovi.mensaje().Length;
+      int arrayLength = kenovi.mensaje().Count;
       string[] mensajeArray = new string[arrayLength];
 
       for (var i = 0; i < arrayLength; i++)
       {
-        string[] aux = kenovi.mensaje();
+        List<string> aux = kenovi.mensaje();
         mensajeArray[i] = aux[i];
       }
       RecorrerMensaje(mensajeArray, skyWalker);
@@ -68,9 +68,9 @@ namespace RebelDecrypApi.Domain
 
     private static void RecorrerMensaje(string[] mensajeArray, Satelite satelite)
     {
-      for (var i = 0; i < satelite.mensaje().Length; i++)
+      for (var i = 0; i < satelite.mensaje().Count; i++)
       {
-        string[] aux = satelite.mensaje();
+        List<string> aux = satelite.mensaje();
         if (string.IsNullOrEmpty(aux[i]))
         {
           continue;

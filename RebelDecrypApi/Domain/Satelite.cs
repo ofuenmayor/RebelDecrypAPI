@@ -25,12 +25,12 @@ namespace RebelDecrypApi.Domain
       return longitud;
     }
 
-    public void InterceptarTransmicion(double radioDeDistancia, string[] mensaje)
+    public void InterceptarTransmicion(double radioDeDistancia, List<string> mensaje)
     {
       informacionNaveImperial = new NaveImperial(radioDeDistancia, mensaje);
     }
 
-    public string[] mensaje()
+    public List<string> mensaje()
     {
       return informacionNaveImperial.MensajeCapturado();
     }
