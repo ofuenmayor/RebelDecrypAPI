@@ -8,6 +8,7 @@ using RebelDecrypApi.Controllers;
 using RebelDecrypApi.Domain;
 using Xunit;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.AspNetCore.Mvc;
 
 namespace RebelDecprypApi_test
 {
@@ -34,7 +35,7 @@ namespace RebelDecprypApi_test
 
         mensajesInterceptados.satellites = mensajes;
 
-        ReporteComputadoraCentral reporte = topSecretController.MensajeEntrante(mensajesInterceptados);
+        //        ReporteComputadoraCentral reporte = topSecretController.MensajeEntrante(mensajesInterceptados);
 
 
 
@@ -66,11 +67,11 @@ namespace RebelDecprypApi_test
       InformacionEntrante mensajesInterceptados = new InformacionEntrante();
       mensajesInterceptados.satellites = mensajes;
 
-      ReporteComputadoraCentral reporte = topSecretController.MensajeEntrante(mensajesInterceptados);
-
-      Assert.Equal("este es un mensaje secreto", reporte.message);
-      Assert.Equal(175.65, reporte.position.x);
-      Assert.Equal(405.07, reporte.position.y);
+      var reporte = (OkObjectResult)topSecretController.MensajeEntrante(mensajesInterceptados);
+      ReporteComputadoraCentral reporteCentral = reporte.Value as ReporteComputadoraCentral;
+      Assert.Equal("este es un mensaje secreto", reporteCentral.message);
+      Assert.Equal(175.65, reporteCentral.position.x);
+      Assert.Equal(405.07, reporteCentral.position.y);
 
     }
 
