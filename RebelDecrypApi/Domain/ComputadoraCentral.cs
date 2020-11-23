@@ -2,6 +2,7 @@ using System.Text;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace RebelDecrypApi.Domain
 {
@@ -77,6 +78,21 @@ namespace RebelDecrypApi.Domain
         }
         mensajeArray[i] = aux[i];
       }
+    }
+
+    public static MensajeInterceptado validarMensaje(IMemoryCache _cache, string satelite)
+    {
+      MensajeInterceptado mensaje = new MensajeInterceptado();
+      _cache.TryGetValue(satelite, out mensaje);
+      if (mensaje != null)
+      {
+        mensaje.name = satelite;
+      }
+      else
+      {
+        throw new Exception("Imposible determinar el mensaje y la ubicacion");
+      }
+      return mensaje;
     }
   }
 }

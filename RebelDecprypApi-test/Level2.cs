@@ -7,6 +7,7 @@ using Moq;
 using RebelDecrypApi.Controllers;
 using RebelDecrypApi.Domain;
 using Xunit;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace RebelDecprypApi_test
 {
@@ -18,7 +19,8 @@ namespace RebelDecprypApi_test
       try
       {
         var iLogger = new Mock<ILogger<TopSecretController>>();
-        TopSecretController topSecretController = new TopSecretController(iLogger.Object);
+        var memoryCache = new Mock<IMemoryCache>();
+        TopSecretController topSecretController = new TopSecretController(iLogger.Object, memoryCache.Object);
         List<MensajeInterceptado> mensajes = new List<MensajeInterceptado>();
 
         MensajeInterceptado mensaje1 = CrearMensaje(100, "kenovi", new List<string>() { "este", "", "", "mensaje", "" });
@@ -48,10 +50,11 @@ namespace RebelDecprypApi_test
     public void Test1()
     {
       var iLogger = new Mock<ILogger<TopSecretController>>();
-      TopSecretController topSecretController = new TopSecretController(iLogger.Object);
+      var memoryCache = new Mock<IMemoryCache>();
+      TopSecretController topSecretController = new TopSecretController(iLogger.Object, memoryCache.Object);
       List<MensajeInterceptado> mensajes = new List<MensajeInterceptado>();
 
-      MensajeInterceptado mensaje1 = CrearMensaje(100, "kenovi", new List<string>() { "este", "", "", "mensaje", "" });
+      MensajeInterceptado mensaje1 = CrearMensaje(100, "kenobi", new List<string>() { "este", "", "", "mensaje", "" });
       mensajes.Add(mensaje1);
 
       MensajeInterceptado mensaje2 = CrearMensaje(115.5, "skywalker", new List<string>() { "", "es", "", "", "secreto" });
