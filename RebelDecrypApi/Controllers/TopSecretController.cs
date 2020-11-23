@@ -24,6 +24,11 @@ namespace RebelDecrypApi.Controllers
       _cache = cache;
     }
 
+    /// <summary>
+    /// Rastrear nave imperial enemiga con la información de los 3 satelites
+    /// </summary>
+    /// <param name="mensajesCapturados">Mensajes capturados de los 3 satelites</param>
+    /// <returns>coordenadas de la nave y el mensaje descifrado</returns>
     [HttpPost]
     [Route("topsecret")]
     public IActionResult MensajeEntrante([FromBody] InformacionEntrante mensajesCapturados)
@@ -42,6 +47,11 @@ namespace RebelDecrypApi.Controllers
       }
     }
 
+    /// <summary>
+    /// Captura la información de manera individual de cada satelite al compretar los 3 satelites se puede triangular la nave
+    /// </summary>
+    /// <param name="mensaje">Distancia des mensaje y mensaje</param>
+    /// <param name="satelite"> Nombre del satelite</param>
     [HttpPost]
     [Route("topsecret_split/{satelite}")]
     public void MensajeDividido([FromBody] MensajeInterceptado mensaje, string satelite)
@@ -49,6 +59,11 @@ namespace RebelDecrypApi.Controllers
       var mensajeCacheado = _cache.GetOrCreate<MensajeInterceptado>(satelite, _cache => mensaje);
     }
 
+    /// <summary>
+    /// Luego de cargada la información de los satelites con este endpoint se triangula la ubicación de la nave y se descubre el mensaje
+    /// </summary>
+    /// <param name="satelite">nombre del satelite</param>
+    /// <returns> La ubicaición de la nave y el mensaje</returns>
     [HttpGet]
     [Route("topsecret_split/{satelite}")]
     public IActionResult MensajeDivididoObtenerReporte(string satelite)

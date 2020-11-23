@@ -18,3 +18,9 @@ d:\Documentos\Coding\ML\RebelDecrypAPI\RebelDecrypApi\obj\Debug\netcoreapp3.1\st
 d:\Documentos\Coding\ML\RebelDecrypAPI\RebelDecrypApi\obj\Debug\netcoreapp3.1\RebelDecrypApi.dll
 d:\Documentos\Coding\ML\RebelDecrypAPI\RebelDecrypApi\obj\Debug\netcoreapp3.1\RebelDecrypApi.pdb
 d:\Documentos\Coding\ML\RebelDecrypAPI\RebelDecrypApi\obj\Debug\netcoreapp3.1\RebelDecrypApi.genruntimeconfig.cache
+D:\Documentos\Coding\ML\RebelDecrypAPI\RebelDecrypApi\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+D:\Documentos\Coding\ML\RebelDecrypAPI\RebelDecrypApi\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+D:\Documentos\Coding\ML\RebelDecrypAPI\RebelDecrypApi\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Documentos\Coding\ML\RebelDecrypAPI\RebelDecrypApi\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Documentos\Coding\ML\RebelDecrypAPI\RebelDecrypApi\obj\Debug\netcoreapp3.1\RebelDecrypApi.MvcApplicationPartsAssemblyInfo.cs
+D:\Documentos\Coding\ML\RebelDecrypAPI\RebelDecrypApi\obj\Debug\netcoreapp3.1\RebelDecrypApi.csproj.CopyComplete

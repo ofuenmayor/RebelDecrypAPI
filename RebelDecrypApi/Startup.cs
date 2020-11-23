@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 
 namespace RebelDecrypApi
 {
@@ -27,6 +28,7 @@ namespace RebelDecrypApi
     {
       services.AddControllers();
       services.AddMemoryCache();
+      AddSwagger(services);
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +49,33 @@ namespace RebelDecrypApi
       {
         endpoints.MapControllers();
       });
+
+      app.UseSwagger();
+      app.UseSwaggerUI(c =>
+      {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Rebelde API V1");
+      });
     }
+
+    private void AddSwagger(IServiceCollection services)
+    {
+      services.AddSwaggerGen(options =>
+      {
+        var groupName = "v1";
+
+        options.SwaggerDoc(groupName, new OpenApiInfo
+        {
+          Title = $"Rebelde {groupName}",
+          Version = groupName,
+          Description = "Rebelde API",
+          Contact = new OpenApiContact
+          {
+            Name = "Escuadron Rebelde",
+            Email = string.Empty,
+          }
+        });
+      });
+    }
+
   }
 }
