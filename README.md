@@ -22,10 +22,10 @@ La API esta desarrollada con **.NetCore 3.1**, con test realizados en **XUnit**
 
 ### Ejecutar localmente
 
-1 - Descargar el repositorio
-2 - Pararse sobre la carpeta que posee la sln y ejecutar el comando **dotnet restore** para instalar las dependencias del producto
-3 - Ejecutar **dotnet build**
-4 - Ejecutar **dotnet run**
+1. - Descargar el repositorio
+2. - Pararse sobre la carpeta que posee la sln y ejecutar el comando **dotnet restore** para instalar las dependencias del producto
+3. - Ejecutar **dotnet build**
+4. - Ejecutar **dotnet run**
 
 Si da error de certificados
 
@@ -45,25 +45,7 @@ Url: https://examenml.azurewebsites.net/topsecret
 Metodo: Post
 Body de ejemplo:
 
-{
-"satellites": [
-{
-"name": "kenobi",
-"distance": 100.0,
-"message": ["este", "", "", "mensaje", ""]
-},
-{
-"name": "skywalker",
-"distance": 115.5,
-"message": ["", "es", "", "", "secreto"]
-},
-{
-"name": "sato",
-"distance": 142.7,
-"message": ["este", "", "un", "", ""]
-}
-]
-}
+`{ "position": { "x": 175.65, "y": 405.07 }, "message": "este es un mensaje secreto" } `
 
 **Response**
 
