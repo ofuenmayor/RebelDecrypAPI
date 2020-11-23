@@ -46,9 +46,13 @@ Metodo: Post
 Body de ejemplo:
 
 `{ "satellites": [ { "name": "kenobi", "distance": 100.0, "message": ["este", "", "", "mensaje", ""] }, { "name": "skywalker", "distance": 115.5, "message": ["", "es", "", "", "secreto"] }, { "name": "sato", "distance": 142.7, "message": ["este", "", "un", "", ""] } ] } `
+
 **Response**
 
 **OK**
+
 `Status: 200 { "position": { "x": 175.65, "y": 405.07 }, "message": "este es un mensaje secreto" } `
+
 **No Ok**
+
 `Status: 404`
