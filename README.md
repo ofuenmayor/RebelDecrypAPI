@@ -1,2 +1,5 @@
 # RebelDecrypAPI
-Servicio para capturar mensajes de naves imperiales 
+
+**Objetivo**
+
+Interceptar transmiciones de naves imperiales y decifrar sus mensajes 
