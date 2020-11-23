@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Documentos\\Coding\\ML\\RebelDecrypAPI\\RebelDecrypApi\\RebelDecrypApi.csproj": {}
+    "D:\\Documentos\\Coding\\ML\\RebelDecrypAPI\\RebelDecrypApi\\RebelDecrypApi.csproj": {}
   },
   "projects": {
-    "d:\\Documentos\\Coding\\ML\\RebelDecrypAPI\\RebelDecrypApi\\RebelDecrypApi.csproj": {
+    "D:\\Documentos\\Coding\\ML\\RebelDecrypAPI\\RebelDecrypApi\\RebelDecrypApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Documentos\\Coding\\ML\\RebelDecrypAPI\\RebelDecrypApi\\RebelDecrypApi.csproj",
+        "projectUniqueName": "D:\\Documentos\\Coding\\ML\\RebelDecrypAPI\\RebelDecrypApi\\RebelDecrypApi.csproj",
         "projectName": "RebelDecrypApi",
-        "projectPath": "d:\\Documentos\\Coding\\ML\\RebelDecrypAPI\\RebelDecrypApi\\RebelDecrypApi.csproj",
+        "projectPath": "D:\\Documentos\\Coding\\ML\\RebelDecrypAPI\\RebelDecrypApi\\RebelDecrypApi.csproj",
         "packagesPath": "C:\\Users\\devom\\.nuget\\packages\\",
-        "outputPath": "d:\\Documentos\\Coding\\ML\\RebelDecrypAPI\\RebelDecrypApi\\obj\\",
+        "outputPath": "D:\\Documentos\\Coding\\ML\\RebelDecrypAPI\\RebelDecrypApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
